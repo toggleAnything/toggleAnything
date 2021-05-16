@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-and-deploy-back:
-    name: Build and Deploy Back-end
+    name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Check Out Repo 
