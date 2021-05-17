@@ -1,0 +1,12 @@
+# Logs
+logs
+*.log
+
+#VS Code
+.vscode
+
+#Dependency directory
+node_modules/
+
+#build directory
+dist
