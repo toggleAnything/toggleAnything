@@ -35,7 +35,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: toggleAnything/toggleAnything:latest
+          tags: toggleanything/toggleanything:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
