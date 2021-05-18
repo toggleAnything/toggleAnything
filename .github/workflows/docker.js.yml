@@ -52,3 +52,6 @@ jobs:
 
       - name: Pull image
         run: docker pull ashrash290/toggleanything:latest
+
+      - name: Deploy image
+        run: docker run -p 3000:3000 --env-file ./dev.env ashrash290/toggleanything:latest
