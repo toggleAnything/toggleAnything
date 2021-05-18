@@ -9,8 +9,8 @@ on:
       - main
 
 jobs:
-  build-and-deploy-back:
-    name: Build and Deploy
+  build:
+    name: Build and Push
     runs-on: ubuntu-latest
     steps:
       - name: Check Out Repo 
@@ -39,3 +39,10 @@ jobs:
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+
+  deploy:
+    name: Deploy
+    runs-on: self-hosted
+    steps:
+      - name: Pull image
+        run: docker pull ashrash290/toggleanything:latest
