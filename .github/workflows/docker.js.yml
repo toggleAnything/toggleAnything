@@ -1,4 +1,4 @@
-name: Build Container for Prod & Push to Dockerhub
+name: Build and Push
 
 on:
   pull_request:
