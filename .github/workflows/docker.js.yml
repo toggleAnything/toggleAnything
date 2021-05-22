@@ -53,10 +53,10 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Removing previous running containers 
-        run: docker kill $(docker ps -q) &> exit 0
+        run: docker ps -a | grep -v CONTAINER | awk '{print $1}' | xargs --no-run-if-empty sudo docker rm -f
         
-      - name: Removing previous running containers 
-        run: docker rm -vf $(docker ps -a -q) &> exit 0 
+      - name: Removing previous images 
+        run: docker image ls -q | xargs -I {} docker image rm -f {}
         
       - name: Pull image
         run: docker pull ashrash290/toggleanything:latest
