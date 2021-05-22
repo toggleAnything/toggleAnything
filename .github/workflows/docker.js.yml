@@ -52,6 +52,12 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
+      - name: Removing previous running containers 
+        run: docker kill $(docker ps -q)
+        
+      - name: Removing previous running containers 
+        run: docker rm -vf $(docker ps -a -q)  
+        
       - name: Pull image
         run: docker pull ashrash290/toggleanything:latest
 
