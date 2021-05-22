@@ -53,7 +53,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Removing previous running containers 
-        run: docker ps -a | grep -v CONTAINER | awk '{print $1}' | xargs --no-run-if-empty sudo docker rm -f
+        run: docker ps -a | grep -v CONTAINER | awk '{print $1}' | xargs --no-run-if-empty docker rm -f
         
       - name: Removing previous images 
         run: docker image ls -q | xargs -I {} docker image rm -f {}
