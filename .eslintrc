@@ -1,4 +1,5 @@
 {
+    "parser": "babel-eslint",
     "plugins": [
         "react"
     ],
@@ -8,11 +9,8 @@
         "plugin:react/recommended"
     ],
     "rules": {
-        "import/no-extraneous-dependencies": [
-            "error", {
-               "devDependencies": true
-            }
-        ]
+        "react/sort-prop-types": 2,
+        "react/jsx-sort-props": 2
     },
     "parserOptions": {
         "ecmaVersion": 2020,
@@ -25,5 +23,15 @@
         "browser": true,
         "node": true,
         "es2020": true
-    }  
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            },
+            "webpack": {
+                "config": "./config/webpack.config.js"
+            }
+        }
+    }
 }
