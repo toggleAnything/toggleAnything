@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button } from 'antd';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { selectors, actions } from '../state/ducks/user';
+import Layout from './Layout';
 
 class App extends React.PureComponent {
   onButtonClick = () => {
@@ -11,27 +11,19 @@ class App extends React.PureComponent {
   }
 
   render() {
-    const { isSelected } = this.props;
     return (
       <>
-        <h1>Hello world</h1>
-        <Button onClick={this.onButtonClick} type="primary">Primary Button</Button>
-        <h2>
-          IsButtonClicked:
-          {isSelected}
-        </h2>
+        <Layout />
       </>
     );
   }
 }
 
 App.defaultProps = {
-  isSelected: false,
   onButtonClick: () => {},
 };
 
 App.propTypes = {
-  isSelected: PropTypes.bool,
   onButtonClick: PropTypes.func,
 };
 

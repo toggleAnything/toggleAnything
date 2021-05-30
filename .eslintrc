@@ -27,10 +27,11 @@
     "settings": {
         "import/resolver": {
             "node": {
-                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+                "extensions": [".js", ".jsx"],
+                "paths": ["src"]
             },
             "webpack": {
-                "config": "./config/webpack.config.js"
+                "config": "config/webpack.local.js"
             }
         }
     }

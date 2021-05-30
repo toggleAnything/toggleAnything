@@ -8,28 +8,21 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 
 const srcPath = path.join(__dirname, '../src');
 const publicPath = '/';
-
 module.exports = {
   entry: ['../src/index'],
   cache: false,
   context: srcPath,
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: 'static/js/[name].[hash].js',
+    filename: 'static/js/[name].[fullhash].js',
     publicPath,
   },
   resolve: {
-    extensions: [
-      '.js',
-      '.jsx',
-    ],
+    extensions: ['.js', '.jsx', '.json', '.scss'],
     alias: {
-      constants: `${srcPath}/constants/`,
       components: `${srcPath}/components/`,
       containers: `${srcPath}/containers/`,
-      ducks: `${srcPath}/state/ducks/`,
-      lib: `${srcPath}/lib`,
-      models: `${srcPath}/models`,
+      lib: `${srcPath}/lib/`,
     },
   },
   module: {
@@ -49,11 +42,17 @@ module.exports = {
         },
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.scss$/i,
         use: [
           'style-loader',
           'css-loader',
           'sass-loader',
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'css-loader',
         ],
       },
       {
@@ -76,7 +75,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      title: 'APP',
+      title: 'Toggle Anything',
       template: path.join(__dirname, '../src/assets/index.html'),
     }),
     new StyleLintPlugin({

@@ -4,14 +4,15 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-import App from '../components/App';
+import { hot } from 'react-hot-loader';
+import ProtectedRoutes from './ProtectedRoutes';
 
 const AppContainer = () => (
   <React.StrictMode>
     <Router>
       <Switch>
         <Route
-          component={App}
+          component={ProtectedRoutes}
           path="/"
         />
       </Switch>
@@ -19,4 +20,4 @@ const AppContainer = () => (
   </React.StrictMode>
 );
 
-export default AppContainer;
+export default hot(module)(AppContainer);
