@@ -15,7 +15,7 @@ const config = merge(
       hot: true,
       port,
       proxy: {
-        '*': 'http://localhost:7400',
+        '*': 'http://localhost:3000',
       },
       publicPath: '/',
       noInfo: false,

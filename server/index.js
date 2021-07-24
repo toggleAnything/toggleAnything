@@ -1,15 +1,24 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const path = require('path');
+const session = require('express-session');
+
+const passport = require('./passport');
 const { logger } = require('./lib/winston');
 
 const routes = require('./routes');
 
 const app = express();
 
+app.use(cookieParser());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
+app.use(session({ secret: 'ToggleAnything', resave: false, saveUninitialized: true }));
 
 app.use(express.static(path.resolve(__dirname, '../dist/')));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
