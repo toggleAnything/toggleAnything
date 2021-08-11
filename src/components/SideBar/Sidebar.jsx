@@ -10,7 +10,7 @@ import sidebar from '../../constants/sidebar';
 class Sidebar extends React.PureComponent {
   render() {
     return (
-      <Paper elevation={0} style={{ height: '100vh', backgroundColor: '#eee' }}>
+      <Paper elevation={0} style={{ height: '100vh', backgroundColor: '#eee', width: '15rem' }}>
         <List style={{ paddingTop: '4rem' }}>
           {sidebar.map(({ text, icon, link }) => (
             <Link key={link} style={{ textDecoration: 'none', color: 'black' }} to={link}>

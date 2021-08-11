@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unused-state */
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
+import Grid from '@material-ui/core/Grid';
 import TopNav from './TopNav';
 import Sidebar from './SideBar';
 
