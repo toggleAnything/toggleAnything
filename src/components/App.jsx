@@ -1,38 +1,57 @@
+/* eslint-disable react/no-unused-state */
 import React from 'react';
-import { connect } from 'react-redux';
+import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
-import { selectors, actions } from '../state/ducks/user';
-import Layout from './Layout';
+import TopNav from './TopNav';
+import Sidebar from './SideBar';
+
+import './App.scss';
 
 class App extends React.PureComponent {
-  onButtonClick = () => {
-    const { onButtonClick } = this.props;
-    onButtonClick();
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectTab: 'features',
+    };
+  }
+
+  handleSelect = (currentTab) => {
+    this.setState({ selectTab: currentTab });
   }
 
   render() {
+    const { children } = this.props;
     return (
       <>
-        <Layout />
+        <Grid
+          alignItems="center"
+          className="base-layout"
+          container
+          direction="row"
+          elevation={0}
+          justify="center"
+          spacing={0}
+        >
+          <Grid item xs={12}>
+            <TopNav />
+          </Grid>
+          <Grid item xs={2}>
+            <Sidebar />
+          </Grid>
+          <Grid item xs={10}>
+            {children}
+          </Grid>
+        </Grid>
       </>
     );
   }
 }
-
-App.defaultProps = {
-  onButtonClick: () => {},
-};
-
 App.propTypes = {
-  onButtonClick: PropTypes.func,
+  children: PropTypes.node.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  isSelected: selectors.getSelected(state),
-});
+const TestExports = { App };
 
-const mapDispatchToProps = (dispatch) => ({
-  actions: () => dispatch(actions.onButtonClick()),
-});
+export { TestExports };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

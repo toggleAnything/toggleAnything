@@ -5,7 +5,7 @@ COPY . /app
 WORKDIR /app
 RUN ls
 RUN npm install 
-#RUN npm test || exit 1 #Tests not available
+RUN npm test || exit 1 
 RUN npm run build
 ENTRYPOINT node ./server/index.js
 EXPOSE 8080

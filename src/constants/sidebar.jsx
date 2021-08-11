@@ -1,7 +1,11 @@
+import React from 'react';
+import ToggleOnIcon from '@material-ui/icons/ToggleOn';
+
 const sideBar = [
   {
-    icon: '',
-    link: '/feature',
+    icon: <ToggleOnIcon />,
+    link: '/toggle',
+    text: 'Toggles',
   },
 ];
 

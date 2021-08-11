@@ -5,6 +5,7 @@ const { logger } = require('./lib/winston');
 const routes = require('./routes');
 
 const app = express();
+require('./config/mongodb');
 
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));

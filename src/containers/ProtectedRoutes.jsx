@@ -1,15 +1,16 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import App from 'components/App';
+import Toggle from './Toggle';
 
 class ProtectedRoutes extends React.Component {
-  renderApp = () => <App />
+  renderToggle = () => <Toggle />
 
   render() {
     return (
       <App>
         <Switch>
-          <Route path="/" render={this.renderApp} />
+          <Route path="/toggle" render={this.renderToggle} />
         </Switch>
       </App>
     );
